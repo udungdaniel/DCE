@@ -1,0 +1,306 @@
+/* =========================================
+   Global Styles
+========================================= */
+:root {
+  --primary: #0056b3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #f9fafc;
+  color: #222;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: #0078d4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   Header & Navigation
+========================================= */
+header {
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+}
+
+/* Logo */
+.logo {
+  width: 55px;
+  height: auto;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-menu li {
+  display: flex;
+}
+
+.nav-menu a {
+  font-weight: 500;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: #0078d4;
+}
+
+/* Logo + Company Name */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.company-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .company-name {
+    display: none;
+  }
+}
+
+/* =========================================
+   Hero Section
+========================================= */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../images/hero-bg.jpg") center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 6rem 1rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background: #0078d4;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #005fa3;
+}
+
+/* =========================================
+   Services Section
+========================================= */
+.services {
+  padding: 4rem 0;
+  background-color: #fff;
+}
+
+.services h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #222;
+  font-size: 2rem;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: #f4f6f9;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-card img {
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  color: #0078d4;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.center {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* =========================================
+   About Section
+========================================= */
+.about {
+  padding: 4rem 0;
+  background-color: #f9fafc;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.about-text {
+  flex: 1 1 450px;
+}
+
+.about-text h2 {
+  color: #222;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+  color: #444;
+}
+
+.about-image {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.about-image img {
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================================
+   Ads Section
+========================================= */
+.ads-section {
+  padding: 3rem 1rem;
+  text-align: center;
+  background-color: #fff;
+  margin-top: 2rem;
+}
+
+.ads-section h2 {
+  font-size: 1.5rem;
+  color: #0078d4;
+  margin-bottom: 1rem;
+}
+
+.ad-placeholder {
+  border: 2px dashed #0078d4;
+  padding: 2rem;
+  border-radius: 8px;
+  background: #f8fbff;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* =========================================
+   Footer
+========================================= */
+footer {
+  background: #222;
+  color: #ddd;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+}
+
+footer a {
+  color: #4da3ff;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================
+   Utility Classes
+========================================= */
+.text-center {
+  text-align: center;
+}
+
+.text-primary {
+  color: #0078d4;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Hide hamburger by default (desktop view) */
+#menu-toggle {
+  display: none;
+}

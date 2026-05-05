@@ -1,0 +1,185 @@
+/* ============ Responsive Styles ============ */
+
+/* Tablets and below */
+@media (max-width: 992px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 2rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  nav ul li {
+    margin: 0.5rem 0;
+  }
+
+  .services-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .service-card {
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .service-card ul {
+    padding-left: 1.5rem;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: var(--primary);
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .services-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .service-card {
+    padding: 1.25rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    text-align: center;
+  }
+
+  .service-card ul li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+
+  footer p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Small Mobile Devices (under 480px) */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .services-container {
+    padding: 1rem;
+  }
+
+  .service-card {
+    padding: 1rem;
+  }
+
+  .service-card h3 {
+    font-size: 1rem;
+  }
+
+  .service-card ul li {
+    font-size: 0.85rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  button,
+  .btn {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* Show hamburger on mobile */
+  #menu-toggle {
+    display: block;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Hide nav by default on mobile */
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  /* Show nav when active */
+  .nav-menu.active {
+    display: flex;
+  }
+}
