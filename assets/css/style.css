@@ -129,30 +129,28 @@ header {
   background: rgba(0, 0, 0, 0.05);
 }
 
-/* =========================================
-   Mobile Styles
-========================================= */
-@media (max-width: 768px) {
 
-  .company-name {
-    display: none;
-  }
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
 
   /* Show hamburger */
   #menu-toggle {
     display: block;
   }
 
-  /* Hide menu by default */
+  /* Small dropdown menu */
   .nav-menu {
     display: none;
     flex-direction: column;
-    background-color: var(--primary);
     position: absolute;
     top: 100%;
-    left: 0;
-    width: 100%;
-    padding: 1rem 0;
+    right: 0;              /* anchor to right */
+    width: 220px;          /* small size */
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    padding: 0.8rem 0;
+    margin-top: 0.5rem;
     z-index: 999;
   }
 
@@ -162,13 +160,19 @@ header {
   }
 
   .nav-menu li {
-    text-align: center;
-    margin: 0.5rem 0;
+    text-align: left;
+    padding: 0;
   }
 
   .nav-menu a {
-    color: #fff;
-    font-size: 1.1rem;
+    color: #333;
+    padding: 0.7rem 1.2rem;
+    display: block;
+    font-size: 0.95rem;
+  }
+
+  .nav-menu a:hover {
+    background: #f4f6f9;
   }
 }
 
