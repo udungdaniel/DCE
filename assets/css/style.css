@@ -55,6 +55,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0.8rem 0;
+  position: relative; /* important for dropdown */
 }
 
 /* Logo */
@@ -63,12 +64,20 @@ header {
   height: auto;
 }
 
+/* Logo + Company Name */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
 /* Navbar */
 .navbar {
   display: flex;
   align-items: center;
 }
 
+/* Desktop menu */
 .nav-menu {
   display: flex;
   list-style: none;
@@ -90,13 +99,7 @@ header {
   color: #0078d4;
 }
 
-/* Logo + Company Name */
-.logo-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
+/* Company name */
 .company-name {
   font-size: 1.1rem;
   font-weight: 600;
@@ -104,11 +107,71 @@ header {
   white-space: nowrap;
 }
 
+/* =========================================
+   Hamburger Button
+========================================= */
+
+/* Hidden on desktop */
+#menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  margin-left: auto; /* pushes it to the right */
+  padding: 0.4rem 0.6rem;
+  border-radius: 5px;
+  transition: background 0.2s ease;
+}
+
+#menu-toggle:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* =========================================
+   Mobile Styles
+========================================= */
 @media (max-width: 768px) {
+
   .company-name {
     display: none;
   }
+
+  /* Show hamburger */
+  #menu-toggle {
+    display: block;
+  }
+
+  /* Hide menu by default */
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background-color: var(--primary);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    z-index: 999;
+  }
+
+  /* Show when active */
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu li {
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+
+  .nav-menu a {
+    color: #fff;
+    font-size: 1.1rem;
+  }
 }
+
 
 /* =========================================
    Hero Section
