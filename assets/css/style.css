@@ -3,11 +3,6 @@
 ========================================= */
 :root {
   --primary: #0056b3;
-  --primary-light: rgba(0, 120, 212, 0.08);
-  --text-dark: #222;
-  --text-light: #444;
-  --bg-light: #f9fafc;
-  --white: #ffffff;
 }
 
 * {
@@ -16,14 +11,10 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  background-color: var(--bg-light);
-  color: var(--text-dark);
+  background-color: #f9fafc;
+  color: #222;
   line-height: 1.6;
 }
 
@@ -39,7 +30,7 @@ a {
 }
 
 a:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .container {
@@ -56,7 +47,6 @@ header {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -66,9 +56,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 0.9rem 0;
-
   position: relative;
 }
 
@@ -87,7 +75,7 @@ header {
 .company-name {
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--text-dark);
+  color: #222;
   white-space: nowrap;
 }
 
@@ -95,7 +83,6 @@ header {
 .navbar {
   display: flex;
   align-items: center;
-  position: relative;
 }
 
 /* Desktop Menu */
@@ -103,7 +90,6 @@ header {
   display: flex;
   align-items: center;
   gap: 2rem;
-
   list-style: none;
 }
 
@@ -113,29 +99,22 @@ header {
 
 .nav-menu a {
   position: relative;
-
   font-size: 0.96rem;
   font-weight: 600;
   color: #333;
-
   padding: 0.3rem 0;
-
   transition: color 0.3s ease;
 }
 
-/* Underline Effect */
+/* Underline hover effect */
 .nav-menu a::after {
   content: "";
-
   position: absolute;
   left: 0;
   bottom: -4px;
-
   width: 0%;
   height: 2px;
-
   background: #0078d4;
-
   transition: width 0.3s ease;
 }
 
@@ -147,6 +126,7 @@ header {
 .nav-menu a:hover,
 .nav-menu a.active {
   color: #0078d4;
+  text-decoration: none;
 }
 
 /* =========================================
@@ -155,11 +135,6 @@ header {
 
 #menu-toggle {
   display: none;
-
-  background: transparent;
-  border: none;
-
-  cursor: pointer;
 }
 
 /* =========================================
@@ -168,12 +143,11 @@ header {
 
 @media (max-width: 768px) {
 
-  /* Hide Company Name */
   .company-name {
     display: none;
   }
 
-  /* Hamburger Button */
+  /* Hamburger */
   #menu-toggle {
     display: flex;
     align-items: center;
@@ -182,45 +156,39 @@ header {
     width: 46px;
     height: 46px;
 
+    background: transparent;
+    border: none;
     border-radius: 12px;
 
+    cursor: pointer;
     transition: background 0.3s ease;
 
     z-index: 1100;
   }
 
   #menu-toggle:hover {
-    background: var(--primary-light);
+    background: rgba(0, 120, 212, 0.08);
   }
 
   /* Hamburger Lines */
   #menu-toggle span {
     position: relative;
-
     width: 24px;
     height: 2px;
-
     background: #222;
     border-radius: 2px;
-
-    display: block;
-
     transition: all 0.35s ease;
   }
 
   #menu-toggle span::before,
   #menu-toggle span::after {
     content: "";
-
     position: absolute;
-    left: 0;
-
     width: 24px;
     height: 2px;
-
     background: #222;
     border-radius: 2px;
-
+    left: 0;
     transition: all 0.35s ease;
   }
 
@@ -232,7 +200,7 @@ header {
     top: 7px;
   }
 
-  /* Animate to X */
+  /* Animate into X */
   #menu-toggle.active span {
     background: transparent;
   }
@@ -247,75 +215,78 @@ header {
     transform: rotate(-45deg);
   }
 
-  /* Small Dropdown Menu */
-  .nav-menu {
-    position: absolute;
-    top: calc(100% + 10px);
-    right: 0;
+  /* Mobile Dropdown */
+  /* Small Professional Dropdown */
+.nav-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
 
-    width: 220px;
-    max-width: 90vw;
+  width: 220px;
+  max-width: 90vw;
 
-    padding: 0.5rem;
+  padding: 0.5rem;
 
-    flex-direction: column;
-    gap: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 
-    background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
 
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
 
-    box-shadow:
-      0 10px 25px rgba(0, 0, 0, 0.08),
-      0 4px 10px rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.08),
+    0 4px 10px rgba(0,0,0,0.04);
 
-    opacity: 0;
-    visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
 
-    transform: translateY(-8px);
+  transform: translateY(-8px);
 
-    transition:
-      opacity 0.25s ease,
-      transform 0.25s ease,
-      visibility 0.25s;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s;
 
-    z-index: 1000;
-  }
+  z-index: 1000;
+}
 
-  /* Show Menu */
+
+  /* Active Menu */
   .nav-menu.active {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 
   /* Mobile Links */
-  .nav-menu a {
-    display: block;
+ .nav-menu a {
+  display: block;
 
-    padding: 0.75rem 1rem;
+  padding: 0.75rem 1rem;
 
-    border-radius: 10px;
+  border-radius: 10px;
 
-    font-size: 0.95rem;
-    font-weight: 500;
+  font-size: 0.95rem;
+  font-weight: 500;
 
-    color: var(--text-dark);
+  color: #222;
 
-    transition:
-      background 0.25s ease,
-      color 0.25s ease,
-      transform 0.2s ease;
-  }
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.2s ease;
+}
 
   .nav-menu a::after {
     display: none;
   }
 
   .nav-menu a:hover {
-    background: var(--primary-light);
+    background: rgba(0, 120, 212, 0.08);
     color: #0078d4;
     transform: translateX(4px);
   }
@@ -324,61 +295,55 @@ header {
     background: rgba(0, 120, 212, 0.12);
     color: #0078d4;
   }
+}   
+
+
+  /* Active page */
+  .nav-menu a.active {
+    background: rgba(0, 120, 212, 0.12);
+    color: #0078d4;
+  }
 }
+
 
 /* =========================================
    Hero Section
 ========================================= */
-
 .hero {
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("../images/hero-bg.jpg") center/cover no-repeat;
-
   color: #fff;
   text-align: center;
-
   padding: 6rem 1rem;
 }
 
 .hero h1 {
-  font-size: 2.7rem;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
   font-weight: 700;
 }
 
 .hero p {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   margin-bottom: 2rem;
 }
 
-/* Buttons */
 .btn {
-  display: inline-block;
-
   background: #0078d4;
   color: #fff;
-
-  padding: 0.85rem 1.6rem;
-
-  border-radius: 8px;
-
-  font-weight: 600;
-
-  transition:
-    background 0.3s ease,
-    transform 0.2s ease;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background 0.3s ease;
 }
 
 .btn:hover {
   background: #005fa3;
-  transform: translateY(-2px);
 }
 
 /* =========================================
    Services Section
 ========================================= */
-
 .services {
   padding: 4rem 0;
   background-color: #fff;
@@ -386,57 +351,45 @@ header {
 
 .services h2 {
   text-align: center;
-
   margin-bottom: 2rem;
-
-  color: var(--text-dark);
+  color: #222;
   font-size: 2rem;
 }
 
 .service-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-
   gap: 2rem;
 }
 
 .service-card {
   background: #f4f6f9;
-
-  border-radius: 14px;
-
+  border-radius: 10px;
   padding: 1.5rem;
   text-align: center;
-
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service-card:hover {
-  transform: translateY(-6px);
-
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 .service-card img {
-  border-radius: 12px;
+  border-radius: 10px;
   margin-bottom: 1rem;
 }
 
 .service-card h3 {
   color: #0078d4;
-
   font-size: 1.2rem;
-
   margin-bottom: 0.8rem;
 }
 
 .service-card p {
   font-size: 0.95rem;
-  color: var(--text-light);
+  color: #444;
 }
 
 .center {
@@ -447,17 +400,15 @@ header {
 /* =========================================
    About Section
 ========================================= */
-
 .about {
   padding: 4rem 0;
-  background-color: var(--bg-light);
+  background-color: #f9fafc;
 }
 
 .about-container {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-
   gap: 2rem;
 }
 
@@ -466,16 +417,14 @@ header {
 }
 
 .about-text h2 {
-  color: var(--text-dark);
-
+  color: #222;
   margin-bottom: 1rem;
-
   font-size: 2rem;
 }
 
 .about-text p {
   margin-bottom: 1.5rem;
-  color: var(--text-light);
+  color: #444;
 }
 
 .about-image {
@@ -484,42 +433,31 @@ header {
 }
 
 .about-image img {
-  border-radius: 12px;
-
+  border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 /* =========================================
    Ads Section
 ========================================= */
-
 .ads-section {
   padding: 3rem 1rem;
-
   text-align: center;
-
   background-color: #fff;
-
   margin-top: 2rem;
 }
 
 .ads-section h2 {
   font-size: 1.5rem;
-
   color: #0078d4;
-
   margin-bottom: 1rem;
 }
 
 .ad-placeholder {
   border: 2px dashed #0078d4;
-
   padding: 2rem;
-
   border-radius: 8px;
-
   background: #f8fbff;
-
   font-size: 0.95rem;
   color: #333;
 }
@@ -527,13 +465,10 @@ header {
 /* =========================================
    Footer
 ========================================= */
-
 footer {
   background: #222;
   color: #ddd;
-
   text-align: center;
-
   padding: 2rem 1rem;
   margin-top: 2rem;
 }
@@ -549,7 +484,6 @@ footer a:hover {
 /* =========================================
    Utility Classes
 ========================================= */
-
 .text-center {
   text-align: center;
 }
@@ -560,4 +494,17 @@ footer a:hover {
 
 .hidden {
   display: none;
+}
+
+/* Hide hamburger by default (desktop view) */
+#menu-toggle {
+  display: none;
+}
+
+#menu-toggle {
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
 }
