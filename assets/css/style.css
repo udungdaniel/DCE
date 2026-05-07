@@ -42,9 +42,11 @@ a:hover {
 /* =========================================
    Header & Navigation
 ========================================= */
+
 header {
-  background: #fff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -54,21 +56,27 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.8rem 0;
-  position: relative; /* important for dropdown */
+  padding: 0.9rem 0;
+  position: relative;
 }
 
-/* Logo */
+/* Logo Area */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
 .logo {
   width: 55px;
   height: auto;
 }
 
-/* Logo + Company Name */
-.logo-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
+.company-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #222;
+  white-space: nowrap;
 }
 
 /* Navbar */
@@ -77,102 +85,218 @@ header {
   align-items: center;
 }
 
-/* Desktop menu */
+/* Desktop Menu */
 .nav-menu {
   display: flex;
-  list-style: none;
+  align-items: center;
   gap: 2rem;
+  list-style: none;
 }
 
 .nav-menu li {
-  display: flex;
+  list-style: none;
 }
 
 .nav-menu a {
-  font-weight: 500;
+  position: relative;
+  font-size: 0.96rem;
+  font-weight: 600;
   color: #333;
+  padding: 0.3rem 0;
   transition: color 0.3s ease;
+}
+
+/* Underline hover effect */
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #0078d4;
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+  width: 100%;
 }
 
 .nav-menu a:hover,
 .nav-menu a.active {
   color: #0078d4;
-}
-
-/* Company name */
-.company-name {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #222;
-  white-space: nowrap;
+  text-decoration: none;
 }
 
 /* =========================================
    Hamburger Button
 ========================================= */
 
-/* Hidden on desktop */
 #menu-toggle {
   display: none;
-  font-size: 1.8rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #333;
-  margin-left: auto; /* pushes it to the right */
-  padding: 0.4rem 0.6rem;
-  border-radius: 5px;
-  transition: background 0.2s ease;
 }
 
-#menu-toggle:hover {
-  background: rgba(0, 0, 0, 0.05);
-}
+/* =========================================
+   Mobile Navigation
+========================================= */
 
-
-/* ================= MOBILE ================= */
 @media (max-width: 768px) {
 
-  /* Show hamburger */
-  #menu-toggle {
-    display: block;
-  }
-
-  /* Small dropdown menu */
-  .nav-menu {
+  .company-name {
     display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    right: 0;              /* anchor to right */
-    width: 220px;          /* small size */
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    padding: 0.8rem 0;
-    margin-top: 0.5rem;
-    z-index: 999;
   }
 
-  /* Show when active */
-  .nav-menu.active {
+  /* Hamburger */
+  #menu-toggle {
     display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    z-index: 1100;
   }
 
-  .nav-menu li {
-    text-align: left;
-    padding: 0;
+  #menu-toggle:hover {
+    background: rgba(0, 120, 212, 0.08);
   }
 
+  /* Hamburger Lines */
+  #menu-toggle span {
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background: #222;
+    border-radius: 2px;
+    transition: all 0.35s ease;
+  }
+
+  #menu-toggle span::before,
+  #menu-toggle span::after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: #222;
+    border-radius: 2px;
+    left: 0;
+    transition: all 0.35s ease;
+  }
+
+  #menu-toggle span::before {
+    top: -7px;
+  }
+
+  #menu-toggle span::after {
+    top: 7px;
+  }
+
+  /* Animate into X */
+  #menu-toggle.active span {
+    background: transparent;
+  }
+
+  #menu-toggle.active span::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  #menu-toggle.active span::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  /* Mobile Dropdown */
+  .nav-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+
+    width: 240px;
+
+    padding: 0.7rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 18px;
+
+    box-shadow:
+      0 12px 30px rgba(0,0,0,0.08),
+      0 4px 12px rgba(0,0,0,0.04);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-10px) scale(0.98);
+
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s;
+
+    z-index: 1000;
+  }
+
+  /* Active Menu */
+  .nav-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Mobile Links */
   .nav-menu a {
-    color: #333;
-    padding: 0.7rem 1.2rem;
     display: block;
-    font-size: 0.95rem;
+
+    padding: 0.9rem 1rem;
+
+    border-radius: 12px;
+
+    font-size: 0.96rem;
+    font-weight: 600;
+
+    transition:
+      background 0.25s ease,
+      color 0.25s ease,
+      transform 0.2s ease;
+  }
+
+  .nav-menu a::after {
+    display: none;
   }
 
   .nav-menu a:hover {
-    background: #f4f6f9;
+    background: rgba(0, 120, 212, 0.08);
+    color: #0078d4;
+    transform: translateX(4px);
+  }
+
+  .nav-menu a.active {
+    background: rgba(0, 120, 212, 0.12);
+    color: #0078d4;
+  }
+}   
+
+
+  /* Active page */
+  .nav-menu a.active {
+    background: rgba(0, 120, 212, 0.12);
+    color: #0078d4;
   }
 }
 

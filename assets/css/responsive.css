@@ -71,62 +71,6 @@
   }
 }
 
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
-
-  /* Header layout */
-  .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  header {
-    padding: 1rem;
-  }
-
-  /* Hide company name */
-  .company-name {
-    display: none;
-  }
-
-  /* Hamburger button */
-  #menu-toggle {
-    display: block;
-    font-size: 1.8rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #333;
-  }
-
-  /* NAV MENU (important fix) */
-  .nav-menu {
-    display: none;
-    flex-direction: column;
-    background-color: var(--primary);
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding: 1rem 0;
-    z-index: 999;
-  }
-
-  .nav-menu li {
-    text-align: center;
-    margin: 0.5rem 0;
-  }
-
-  .nav-menu a {
-    color: #fff;
-    font-size: 1.1rem;
-  }
-
-  /* Show menu when active */
-  .nav-menu.active {
-    display: flex;
-  }
 
   /* Hero */
   .hero h1 {
